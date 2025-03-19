@@ -1,9 +1,9 @@
-NAME = megaphone
+NAME = phonebook
 
 C = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = megaphone.cpp
+SRCS = phonebook.cpp
 
 OBJS = $(SRCS:.c=.o)
 
@@ -33,7 +33,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(BOLD)$(CYAN)$(MAIN) Fclean rule vOK !$(RESET)"
+	@echo "$(BOLD)$(CYAN)$(MAIN) Fclean rule OK !$(RESET)"
 
 re: fclean all
 
