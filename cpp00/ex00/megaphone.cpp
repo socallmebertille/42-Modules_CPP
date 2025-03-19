@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/19 16:56:40 by saberton          #+#    #+#             */
+/*   Updated: 2025/03/19 17:00:53 by saberton         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cctype>
 
@@ -17,7 +29,7 @@ void	str_to_upper(char **str)
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac <= 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 		str_to_upper(av + 1);
