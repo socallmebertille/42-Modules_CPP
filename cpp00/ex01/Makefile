@@ -1,11 +1,13 @@
 NAME = phonebook
 
 C = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
-SRCS = PhoneBook.cpp
+SRC_DIR = srcs
+OBJ_DIR = objs
 
-OBJS = $(SRCS:.c=.o)
+SRCS = $(addprefix $(SRC_DIR)/, main.cpp PhoneBook.cpp Contact.cpp)
+OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
 CYAN = \033[38;5;45m
 PINK = \033[38;5;213m
@@ -21,6 +23,12 @@ $(NAME): $(OBJS)
 	@echo "$(BOLD)$(PINK)Compilation $(NAME)...$(RESET)"
 	@$(C) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BOLD)$(GREEN)$(MAIN) OK !$(RESET)"
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@$(CXX) $(CXXFLAGS) -Iincludes -c $< -o $@
 
 show-main:
 	@if [ ! -f .main ]; then echo -n "" > .main; fi
