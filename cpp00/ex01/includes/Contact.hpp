@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:57:36 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 15:45:35 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:13:11 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 
 class Contact
 {
   public:
-	// Contact();
+	Contact();
 	// ~Contact();
 	void		createContact();
 	void		displayContact();

@@ -22,11 +22,6 @@ $(NAME): $(OBJS)
 	@$(C) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BOLD)$(GREEN)$(MAIN) OK !$(RESET)"
 
-show-main:
-	@if [ ! -f .main ]; then echo -n "" > .main; fi
-	@echo -n "$(MAIN)" >> .main
-	@printf "$(CYAN) %s$(RESET)\r" "$$(cat .main)"
-
 clean:
 	@rm -rf $(OBJ_DIR)
 	@echo "$(BOLD)$(YELLOW)$(MAIN) Clean rule OK !$(RESET)"

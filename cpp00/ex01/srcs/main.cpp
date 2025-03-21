@@ -6,38 +6,31 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:56:24 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 14:31:16 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/21 18:06:12 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <csignal>
 #include "PhoneBook.hpp"
-// #include "Contact.hpp"
 
 int main(void)
 {
 	PhoneBook	PhoneBook;
-	std::string	answer("Nothing");
+	std::string	answer;
 	
-	while (answer == "Nothing")
+	while (true)
 	{
-		std::cout << "Type ADD, SEARCH or EXIT" << std::endl;
-		// std::cin >> answer;
+		std::cout << "Please, type ADD, SEARCH or EXIT." << std::endl;
 		std::getline(std::cin, answer);
 		if (answer == "ADD")
-		{
 			PhoneBook.add();
-		}
 		else if (answer == "SEARCH")
-		{
 			PhoneBook.search();
-		}
 		else if (answer == "EXIT")
-		{
-			PhoneBook.exit();
-			return (0);
-		}
-		answer = "Nothing";
+			break ;
+		else
+			std::cout << "Invalid command." << std::endl;
 	}
 	return (0);
 }

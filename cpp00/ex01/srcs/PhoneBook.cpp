@@ -6,48 +6,45 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:02:51 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 15:46:07 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:43:50 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-// PhoneBook::PhoneBook():nbContact(0)
-// {
-// 	Contact	empty_contact;
+PhoneBook::PhoneBook():nbContact(0)
+{
+	Contact	empty_contact;
 
-// 	for (int i(0); i < 8; i++)
-// 		phoneBook[i] = empty_contact;
-// }
-
-// PhoneBook::~PhoneBook()
-// {
-	
-// }
+	for (int i(0); i < 8; i++)
+		phoneBook[i] = empty_contact;
+}
 
 void	PhoneBook::add()
 {
-	if (nbContact == 8)
+	if (nbContact < 8)
+	{
+		phoneBook[nbContact].createContact();
+		if (nbContact == 0)
+			phoneBook[nbContact].newOldest();
+		nbContact++;
+	}
+	else
 	{
 		int	oldest(0);
-		while (oldest < nbContact)
+		for (int i(0); i < 8; ++i)
 		{
-			if (phoneBook[oldest].getOldest() == 1)
+			if (phoneBook[i].getOldest() == 1)
+			{
+				oldest = i;
 				break ;
-			oldest++;
+			}
 		}
+		phoneBook[oldest].createContact();
 		if (oldest + 1 < nbContact)
 			phoneBook[oldest + 1].newOldest();
 		else
 			phoneBook[0].newOldest();
-		phoneBook[oldest].createContact();
-	}
-	else
-	{
-		if (nbContact == 0)
-			phoneBook[nbContact].newOldest();
-		phoneBook[nbContact].createContact();
-		nbContact++;
 	}
 }
 
@@ -74,25 +71,23 @@ void	PhoneBook::search()
 		return ;
 	}
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	int	i(0);
-	while (i <= 0 || i > nbContact)
+	int index(-1);
+	while (true)
 	{
-		std::cout << "Choose an index to view contact details : " << std::endl;
-		std::cin >> i;
-		std::cin.ignore();
-		if (i > 0 && i <= nbContact)
+		std::cout << "Choose an index to view contact details :" << std::endl;
+		std::string input;
+		std::getline(std::cin, input);
+		std::stringstream ss(input);
+		if (ss >> index && ss.eof() && index > 0 && index <= nbContact)
 		{
-			std::cout << "Contact number ";
-			std::cout << i;
-			std::cout << " details :" << std::endl;
-			phoneBook[i - 1].displayContact();
+			std::cout << "Contact number " << index << " details:" << std::endl;
+			phoneBook[index - 1].displayContact();
 			break ;
 		}
-		std::cout << "Index is invalid. Please, try again." << std::endl;
+		if (nbContact == 1)
+			std::cout << "Invalid index. The number can only be 1." << std::endl;
+		else
+			std::cout << "Invalid index. Please enter a number between 1 and " << nbContact << "." << std::endl;
 	}
 }
 
-void	PhoneBook::exit()
-{
-	return ;
-}

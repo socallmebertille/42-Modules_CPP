@@ -6,29 +6,25 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:57:14 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 15:45:29 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:43:42 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-// Contact::Contact()
-// {
+Contact::Contact():oldest(0)
+{
 	
-// }
+}
 
-// Contact::~Contact()
-// {
-	
-// }
 
 void	Contact::displayContact()
 {
 	std::cout << "First Name : " + firstName << std::endl;
-	std::cout << "Last Name : " + firstName << std::endl;
-	std::cout << "Nickname : " + firstName << std::endl;
-	std::cout << "Phone Number : " + firstName << std::endl;
-	std::cout << "Darkest Secret : " + firstName << std::endl;
+	std::cout << "Last Name : " + lastName << std::endl;
+	std::cout << "Nickname : " + nickname << std::endl;
+	std::cout << "Phone Number : " + phoneNumber << std::endl;
+	std::cout << "Darkest Secret : " + darkestSecret << std::endl;
 }
 
 std::string Contact::displayFirstName()
@@ -37,10 +33,9 @@ std::string Contact::displayFirstName()
 		return (firstName);
 	else if (firstName.size() < 10)
 	{
-		std::string	remain("");
-		while ((firstName + remain).size() < 10)
-			remain = remain + " ";
-		return (firstName + remain);
+		std::stringstream ss;
+		ss << std::setw(10) << std::left << firstName;
+		return (ss.str());
 	}
 	return (firstName.substr(0, 9) + ".");
 }
@@ -51,10 +46,9 @@ std::string Contact::displayLastName()
 		return (lastName);
 	else if (lastName.size() < 10)
 	{
-		std::string	remain("");
-		while ((lastName + remain).size() < 10)
-			remain = remain + " ";
-		return (lastName + remain);
+		std::stringstream ss;
+		ss << std::setw(10) << std::left << lastName;
+		return (ss.str());
 	}
 	return (lastName.substr(0, 9) + ".");
 }
@@ -65,10 +59,9 @@ std::string Contact::displayNickname()
 		return (nickname);
 	else if (nickname.size() < 10)
 	{
-		std::string	remain("");
-		while ((nickname + remain).size() < 10)
-			remain = remain + " ";
-		return (nickname + remain);
+		std::stringstream ss;
+		ss << std::setw(10) << std::left << nickname;
+		return (ss.str());
 	}
 	return (nickname.substr(0, 9) + ".");
 }
