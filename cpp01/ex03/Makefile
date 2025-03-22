@@ -1,13 +1,11 @@
-NAME = phonebook
+NAME = weapon
 
 C = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_DIR = srcs
-OBJ_DIR = objs
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-SRCS = $(addprefix $(SRC_DIR)/, main.cpp PhoneBook.cpp Contact.cpp)
-OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.cpp=.o)))
+OBJS = $(SRCS:.c=.o)
 
 CYAN = \033[38;5;45m
 PINK = \033[38;5;213m
@@ -23,12 +21,6 @@ $(NAME): $(OBJS)
 	@echo "$(BOLD)$(PINK)Compilation $(NAME)...$(RESET)"
 	@$(C) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BOLD)$(GREEN)$(MAIN) OK !$(RESET)"
-
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	@$(CXX) $(CXXFLAGS) -Iincludes -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)

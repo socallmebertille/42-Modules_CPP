@@ -28,7 +28,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(BOLD)$(CYAN)$(MAIN) Fclean rule vOK !$(RESET)"
+	@echo "$(BOLD)$(CYAN)$(MAIN) Fclean rule OK !$(RESET)"
 
 re: fclean all
 
