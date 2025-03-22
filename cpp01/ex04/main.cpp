@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 22:06:25 by bertille          #+#    #+#             */
-/*   Updated: 2025/03/22 17:35:44 by saberton         ###   ########.fr       */
+/*   Created: 2025/03/22 17:40:12 by saberton          #+#    #+#             */
+/*   Updated: 2025/03/22 17:40:57 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-void	randomChump( std::string name )
+int	main(int ac, char **av)
 {
-	Zombie  newZombie(name);
-	newZombie.announce();
+    return (0);
 }

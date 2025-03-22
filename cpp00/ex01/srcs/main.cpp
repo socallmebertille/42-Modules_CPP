@@ -6,19 +6,19 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:56:24 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 18:06:12 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:36:42 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <csignal>
 #include "PhoneBook.hpp"
+#include <csignal>
+#include <iostream>
 
-int main(void)
+int	main(void)
 {
-	PhoneBook	PhoneBook;
-	std::string	answer;
-	
+	PhoneBook PhoneBook;
+	std::string answer;
+
 	while (true)
 	{
 		std::cout << "Please, type ADD, SEARCH or EXIT." << std::endl;

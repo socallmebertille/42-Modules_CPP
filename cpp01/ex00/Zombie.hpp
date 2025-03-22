@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 22:06:18 by bertille          #+#    #+#             */
-/*   Updated: 2025/03/21 23:04:24 by bertille         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:36:01 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 # include <iostream>
 
-class   Zombie
+class Zombie
 {
   public:
-    Zombie(std::string newName);
-    ~Zombie();
-    void    announce( void );
+	Zombie(std::string newName);
+	~Zombie();
+	void announce(void);
+
   private:
-    std::string name;
+	std::string name;
 };
 
 #endif

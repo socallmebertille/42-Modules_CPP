@@ -6,19 +6,17 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:57:14 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 17:43:42 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:36:29 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact():oldest(0)
+Contact::Contact() : oldest(0)
 {
-	
 }
 
-
-void	Contact::displayContact()
+void Contact::displayContact()
 {
 	std::cout << "First Name : " + firstName << std::endl;
 	std::cout << "Last Name : " + lastName << std::endl;
@@ -66,7 +64,7 @@ std::string Contact::displayNickname()
 	return (nickname.substr(0, 9) + ".");
 }
 
-int	Contact::getOldest()
+int Contact::getOldest()
 {
 	if (oldest == 1)
 	{
@@ -77,12 +75,12 @@ int	Contact::getOldest()
 	return (0);
 }
 
-void	Contact::newOldest()
+void Contact::newOldest()
 {
 	oldest = 1;
 }
 
-void	Contact::createContact()
+void Contact::createContact()
 {
 	if (firstName.empty() == false)
 		firstName = "";

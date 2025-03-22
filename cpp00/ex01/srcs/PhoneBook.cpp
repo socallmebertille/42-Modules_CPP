@@ -6,13 +6,13 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:02:51 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/21 17:43:50 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:36:53 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook():nbContact(0)
+PhoneBook::PhoneBook() : nbContact(0)
 {
 	Contact	empty_contact;
 
@@ -20,7 +20,7 @@ PhoneBook::PhoneBook():nbContact(0)
 		phoneBook[i] = empty_contact;
 }
 
-void	PhoneBook::add()
+void PhoneBook::add()
 {
 	if (nbContact < 8)
 	{
@@ -31,7 +31,7 @@ void	PhoneBook::add()
 	}
 	else
 	{
-		int	oldest(0);
+		int oldest(0);
 		for (int i(0); i < 8; ++i)
 		{
 			if (phoneBook[i].getOldest() == 1)
@@ -48,7 +48,7 @@ void	PhoneBook::add()
 	}
 }
 
-void	PhoneBook::search()
+void PhoneBook::search()
 {
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	std::cout << "|index     |first name|last name |nickname  |" << std::endl;
@@ -90,4 +90,3 @@ void	PhoneBook::search()
 			std::cout << "Invalid index. Please enter a number between 1 and " << nbContact << "." << std::endl;
 	}
 }
-
