@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:57:14 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/22 17:36:29 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/23 18:12:42 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,34 +87,39 @@ void Contact::createContact()
 	while (firstName.empty())
 	{
 		std::cout << "Please, enter your first name :" << std::endl;
-		std::getline(std::cin, firstName);
+		if (!std::getline(std::cin, firstName))
+			return ;
 	}
 	if (lastName.empty() == false)
 		lastName = "";
 	while (lastName.empty())
 	{
 		std::cout << "Please, enter your last name :" << std::endl;
-		std::getline(std::cin, lastName);
+		if (!std::getline(std::cin, lastName))
+			return ;
 	}
 	if (nickname.empty() == false)
 		nickname = "";
 	while (nickname.empty())
 	{
 		std::cout << "Please, enter your nickname :" << std::endl;
-		std::getline(std::cin, nickname);
+		if (!std::getline(std::cin, nickname))
+			return ;
 	}
 	if (phoneNumber.empty() == false)
 		phoneNumber = "";
 	while (phoneNumber.empty())
 	{
 		std::cout << "Please, enter your phone number :" << std::endl;
-		std::getline(std::cin, phoneNumber);
+		if (!std::getline(std::cin, phoneNumber))
+			return ;
 	}
 	if (darkestSecret.empty() == false)
 		darkestSecret = "";
 	while (darkestSecret.empty())
 	{
 		std::cout << "Please, enter your darkest secret :" << std::endl;
-		std::getline(std::cin, darkestSecret);
+		if (!std::getline(std::cin, darkestSecret))
+			return ;
 	}
 }

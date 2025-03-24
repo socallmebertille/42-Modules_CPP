@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:56:24 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/22 17:36:42 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/23 18:10:53 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "Please, type ADD, SEARCH or EXIT." << std::endl;
-		std::getline(std::cin, answer);
+		if (!std::getline(std::cin, answer))
+			return (1);
 		if (answer == "ADD")
 			PhoneBook.add();
 		else if (answer == "SEARCH")

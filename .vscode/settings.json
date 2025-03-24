@@ -50,6 +50,7 @@
         "ctime": "cpp",
         "iomanip": "cpp",
         "sstream": "cpp",
-        "csignal": "cpp"
+        "csignal": "cpp",
+        "fstream": "cpp"
     }
 }

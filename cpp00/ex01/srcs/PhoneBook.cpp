@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 17:02:51 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/22 17:36:53 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/23 18:11:23 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void PhoneBook::search()
 	{
 		std::cout << "Choose an index to view contact details :" << std::endl;
 		std::string input;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return ;
 		std::stringstream ss(input);
 		if (ss >> index && ss.eof() && index > 0 && index <= nbContact)
 		{
