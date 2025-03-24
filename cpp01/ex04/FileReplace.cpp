@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:35:58 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/24 16:25:05 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/24 17:03:49 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ FileReplace::FileReplace(std::string const fileOrigin, std::string const s1,
 
 FileReplace::~FileReplace()
 {
-	std::cout << "Destructor called ..." << std::endl;
+	std::cout << std::endl << "Destructor called ..." << std::endl;
 }
 
 std::string FileReplace::replace_s1_by_s2(std::string read)
@@ -45,53 +45,64 @@ std::string FileReplace::replace_s1_by_s2(std::string read)
 	return (read);
 }
 
-void FileReplace::copyInFileReplace(void)
+int FileReplace::copyInFileReplace(void)
 {
 	std::ifstream originFile(fileOrigin.c_str());
 	if (!originFile)
 	{
-		std::cout << "ERROR" << std::endl << "Can't read " << fileOrigin;
-		return ;
+		std::cerr << "ERROR" << std::endl << "Can't read " << fileOrigin << std::endl;
+		return (0);
 	}
 	std::ofstream replaceFile(fileReplace.c_str());
 	if (!replaceFile)
 	{
-		std::cout << "ERROR" << std::endl << "Can't open " << fileReplace;
-		return ;
+		std::cerr << "ERROR" << std::endl << "Can't open " << fileReplace << std::endl;
+		return (0);
 	}
 	std::cout << "Copying FileOrigin and replace \"" << s1 << "\" by \"" << s2 << "\" ..." << std::endl;
 	std::string read;
+	if (s1 == s2)
+		std::cout << "<s1> and <s2> are identical, no replacement needed" << std::endl;
 	while (std::getline(originFile, read))
 	{
-		replaceFile << replace_s1_by_s2(read) << std::endl;
+		if (s1 == s2)
+			replaceFile << read << std::endl;
+		else
+			replaceFile << replace_s1_by_s2(read) << std::endl;
 	}
-	std::cout << "Copy & replace of " << fileReplace << " done." << std::endl;
+	if (s1 == s2)
+		std::cout << "Copy of " << fileReplace << " done." << std::endl;
+	else
+		std::cout << "Copy & replace of " << fileReplace << " done." << std::endl;
+	return (1);
 }
 
-void FileReplace::displayFileOrigin(void)
+int FileReplace::displayFileOrigin(void)
 {
 	std::ifstream originFile(fileOrigin.c_str());
 	if (!originFile)
 	{
-		std::cout << "ERROR" << std::endl << "Can't read " << fileOrigin;
-		return ;
+		std::cerr << "ERROR" << std::endl << "Can't read " << fileOrigin << std::endl;
+		return (0);
 	}
 	std::cout << "Displaying FileOrigin : " << std::endl << std::endl;
 	std::string read;
 	while (std::getline(originFile, read))
 		std::cout << read << std::endl;
+	return (1);
 }
 
-void FileReplace::displayFileReplace(void)
+int FileReplace::displayFileReplace(void)
 {
 	std::ifstream replaceFile(fileReplace.c_str());
 	if (!replaceFile)
 	{
-		std::cout << "ERROR" << std::endl << "Can't read " << fileReplace;
-		return ;
+		std::cerr << "ERROR" << std::endl << "Can't read " << fileReplace << std::endl;
+		return (0);
 	}
 	std::cout << "Displaying FileReplace : " << std::endl << std::endl;
 	std::string read;
 	while (std::getline(replaceFile, read))
 		std::cout << read << std::endl;
+	return (1);
 }
