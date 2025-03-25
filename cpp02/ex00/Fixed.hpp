@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:51:07 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/25 17:04:19 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:34:50 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed
 {
   private:
-	int _fixedPoint;
+    int _rawBits;
 	static const int _fractionalBits = 8;
 
   public:
