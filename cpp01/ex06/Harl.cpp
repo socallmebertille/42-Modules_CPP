@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:22:42 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/25 14:35:07 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:37:23 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Harl::complain(std::string level)
 {
 	std::string type[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*function[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	for (unsigned long i(0); i < 4; i++)
+	for (int i(0); i < 4; i++)
 	{
 		if (level == type[i])
 		{
