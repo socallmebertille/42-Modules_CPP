@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:13:22 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/24 18:22:01 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:18:05 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,22 @@
 int	main(void)
 {
 	Harl comment;
-    std::string Harl::*p(NULL);
-    
-    p = &Harl::level;
-    comment.*p = "DEBUG";
-    comment.complain(comment.*p);
-
-    // void    (Harl::*f)(void);
-    // f = &Harl::complain;
+	std::cout << std::endl;
+	comment.complain("DEBUG");
+	std::cout << std::endl;
+	comment.complain("INFO");
+	std::cout << std::endl;
+	comment.complain("WARNING");
+	std::cout << std::endl;
+	comment.complain("ERROR");
+	std::cout << std::endl;
+	comment.complain("DEBUG");
+	std::cout << std::endl;
+	comment.complain("TEST");
+	std::cout << std::endl;
+	comment.complain("");
+	std::cout << std::endl;
+	comment.complain("ERROR");
+	std::cout << std::endl;
 	return (0);
 }

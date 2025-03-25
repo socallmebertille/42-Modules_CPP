@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:10:16 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/24 17:58:17 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:15:28 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class Harl
   public:
 	Harl();
 	~Harl();
-	std::string level;
 	void complain(std::string level);
 };
 
