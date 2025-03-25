@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:10:16 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/25 14:23:59 by saberton         ###   ########.fr       */
+/*   Created: 2025/03/25 14:22:46 by saberton          #+#    #+#             */
+/*   Updated: 2025/03/25 14:33:13 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-# include <iostream>
-
-class Harl
+int	main(int ac, char **av)
 {
-  private:
-	void debug(void);
-	void info(void);
-	void warning(void);
-	void error(void);
+		Harl comment;
 
-  public:
-	Harl();
-	~Harl();
-	void complain(std::string level);
-};
-
-#endif
+	if (ac == 2)
+		comment.complain(av[1]);
+	else
+		std::cout << "ERROR" << std::endl << "Progam should be called \
+like : ./harlFilter <INSTRUCTION>" << std::endl;
+	return (0);
+}
