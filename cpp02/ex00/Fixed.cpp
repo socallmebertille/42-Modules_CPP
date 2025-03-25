@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:53:51 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/25 17:41:08 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:41:46 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Fixed::Fixed(const Fixed &cpy)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = cpy;
 }
+
 Fixed &Fixed::operator=(const Fixed& cpy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
