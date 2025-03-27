@@ -51,6 +51,7 @@
         "iomanip": "cpp",
         "sstream": "cpp",
         "csignal": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "bitset": "cpp"
     }
 }
