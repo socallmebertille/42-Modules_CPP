@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Zombie.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS_DIR = objs
+OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 CYAN = \033[38;5;45m
 PINK = \033[38;5;213m
@@ -22,6 +23,11 @@ $(NAME): $(OBJS)
 	@$(C) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BOLD)$(GREEN)$(MAIN) OK !$(RESET)"
 
+$(OBJS_DIR_WC)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@printf "$(PINK)Compiling $<...$(RESET)\n"
+	@$(C) $(CFLAGS) -c $< -o $@
+
 clean:
 	@rm -rf $(OBJ_DIR)
 	@echo "$(BOLD)$(YELLOW)$(MAIN) Clean rule OK !$(RESET)"
@@ -32,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re show-main
+.PHONY: all clean fclean re
