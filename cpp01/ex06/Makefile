@@ -23,14 +23,14 @@ $(NAME): $(OBJS)
 	@$(C) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(BOLD)$(GREEN)$(MAIN) OK !$(RESET)"
 
-$(OBJS_DIR_WC)/%.o: %.cpp
+$(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@printf "$(PINK)Compiling $<...$(RESET)\n"
 	@$(C) $(CFLAGS) -c $< -o $@
 
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJS_DIR)
 	@echo "$(BOLD)$(YELLOW)$(MAIN) Clean rule OK !$(RESET)"
 
 fclean: clean
