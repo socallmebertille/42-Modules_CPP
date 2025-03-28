@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:53:07 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/28 16:56:10 by saberton         ###   ########.fr       */
+/*   Created: 2025/03/28 18:33:43 by saberton          #+#    #+#             */
+/*   Updated: 2025/03/28 18:34:53 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef POINT_HPP
+# define POINT_HPP
 
-int	main(void)
+# include <iostream>
+# include <cmath>
+
+class Point
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+  private:
+	int _rawBits;
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+  public:
+	Point();
+	Point(const Point& cpy);
+	Point &operator=(const Point& cpy);
+	~Point();
+};
 
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return (0);
-}
+#endif

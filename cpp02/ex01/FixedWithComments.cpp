@@ -6,12 +6,13 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 19:00:58 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/27 19:02:49 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:20:08 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 #include <bitset>
-#include <iostream>
+
 static void printBinary(float _rawBits, int _fractionalBits)
 {
 	std::cout << "Ici on a un fixed-point sous forme : fixed<32," << _fractionalBits << ">" << std::endl;
@@ -30,8 +31,6 @@ static void printBinary(float _rawBits, int _fractionalBits)
 	}
 	std::cout << "\033[0m" << std::endl; // Reset couleurs
 }
-
-#include "Fixed.hpp"
 
 Fixed::Fixed(): _rawBits(0)
 {

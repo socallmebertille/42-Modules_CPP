@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 15:53:07 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/28 16:56:10 by saberton         ###   ########.fr       */
+/*   Created: 2025/03/28 18:33:45 by saberton          #+#    #+#             */
+/*   Updated: 2025/03/28 18:35:53 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int	main(void)
-{
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+Point::Point() {}
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+Point::Point(const Point& cpy) {}
 
-	std::cout << b << std::endl;
+Point &Point::operator=(const Point& cpy) {}
 
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return (0);
-}
+Point::~Point() {}
