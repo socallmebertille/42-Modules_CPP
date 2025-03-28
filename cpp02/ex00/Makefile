@@ -29,7 +29,7 @@ $(OBJS_DIR_WC)/%.o: %.cpp
 	@$(C) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIR)
 	@echo "$(BOLD)$(YELLOW)$(MAIN) Clean rule OK !$(RESET)"
 
 fclean: clean
