@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:36:40 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 18:52:35 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:03:39 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,9 @@ DiamondTrap::~DiamondTrap()
 void DiamondTrap::whoAmI()
 {
 	std::cout << "Who am I ? eheheh ... I'm DiamondTrap " << _name << " & ClapTrap " << ClapTrap::_name << " !!! :)" << std::endl;
+}
+
+void DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
 }

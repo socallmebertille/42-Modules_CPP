@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:35:56 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 17:52:52 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:03:05 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	DiamondTrap &operator=(const DiamondTrap& cpy);
 	~DiamondTrap();
 	void whoAmI();
-	using ScavTrap::attack;
+	// using ScavTrap::attack;
+	void attack(const std::string &target);
 };
 
 #endif
