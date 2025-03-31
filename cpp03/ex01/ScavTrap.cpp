@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:28:31 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 16:45:17 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:50:44 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap& cpy):ClapTrap(cpy)
 {
 	std::cout << "ScavTrap copy constructor of " << cpy._name << " called ..." << std::endl;
+	*this = cpy;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &cpy)

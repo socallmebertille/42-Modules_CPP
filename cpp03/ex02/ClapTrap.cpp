@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 20:18:45 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 16:37:56 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:50:37 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints
 	std::cout << "ClapTrap constructor of " << name << " called ..." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& cpy) { std::cout << "ClapTrap copy constructor of " << cpy._name << " called ..." << std::endl; *this = cpy; }
+ClapTrap::ClapTrap(const ClapTrap& cpy)
+{
+	std::cout << "ClapTrap copy constructor of " << cpy._name << " called ..." << std::endl;
+	*this = cpy;
+}
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& cpy)
 {

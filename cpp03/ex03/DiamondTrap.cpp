@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:36:40 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 18:12:34 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:52:35 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& cpy):ClapTrap(cpy), ScavTrap(cpy), F
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& cpy)
 {
-	std::cout << "DiamondTrap copy assigment operator for " << cpy._name << " called" << std::endl;
+	std::cout << "DiamondTrap copy assigment operator of " << cpy._name << " called" << std::endl;
 	if (this != &cpy)
 	{
 		ClapTrap::operator=(cpy);
