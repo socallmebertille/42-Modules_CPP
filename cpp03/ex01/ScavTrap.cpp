@@ -6,43 +6,38 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:28:31 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 16:07:53 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 16:45:17 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap():ClapTrap()
 {
-	std::cout << "Default ScavTrap constructor called ..." << std::endl;
-	_name = "Default";
+	std::cout << "ScavTrap default constructor called ..." << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor of " << name << " called ..." << std::endl;
-	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& cpy)
+ScavTrap::ScavTrap(const ScavTrap& cpy):ClapTrap(cpy)
 {
 	std::cout << "ScavTrap copy constructor of " << cpy._name << " called ..." << std::endl;
-	*this = cpy;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &cpy)
 {
 	std::cout << "ScavTrap copy assignment operator " << cpy._name << " called" << std::endl;
 	if (this != &cpy)
-	{
 		ClapTrap::operator=(cpy);
-	}
 	return (*this);
 }
 

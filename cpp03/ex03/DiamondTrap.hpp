@@ -6,25 +6,28 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:35:56 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/29 22:36:24 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:52:52 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-# include <iostream>
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class DiamondTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
   private:
-	/* data */
+	std::string _name;
   public:
 	DiamondTrap();
-	DiamondTrap(/* args */);
+	DiamondTrap(const std::string name);
 	DiamondTrap(const DiamondTrap& cpy);
 	DiamondTrap &operator=(const DiamondTrap& cpy);
 	~DiamondTrap();
+	void whoAmI();
+	using ScavTrap::attack;
 };
 
 #endif

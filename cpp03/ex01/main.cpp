@@ -6,11 +6,10 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 20:17:55 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/31 16:17:46 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 16:21:48 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main(void)
