@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 20:18:36 by saberton          #+#    #+#             */
-/*   Updated: 2025/03/29 21:12:00 by saberton         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:54:53 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-  private:
+  protected:
 	std::string _name;
 	int _hitPoints;
 	int _energyPoints;
