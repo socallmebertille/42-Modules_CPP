@@ -1,10 +1,11 @@
-NAME		=	Animal
+NAME		=	Brain
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 SRCS_NAMES  = 	Animal.cpp Cat.cpp Dog.cpp \
 				WrongAnimal.cpp WrongCat.cpp \
+				Brain.cpp \
 				main.cpp
 OBJS_NAMES  =	$(SRCS_NAMES:.cpp=.o)
 
