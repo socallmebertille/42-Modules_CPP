@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:03:23 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/01 12:09:02 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/01 14:12:39 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include "Animal.hpp"
 
-class Cat
+class Cat : public Animal
 {
-private:
+  private:
 	/* data */
-public:
+
+  public:
 	Cat();
-	Cat(/* args */);
+	Cat(const Cat& cpy);
 	Cat& operator=(const Cat& cpy);
 	~Cat();
+	virtual void makeSound(void) const;
 };
 
 #endif
