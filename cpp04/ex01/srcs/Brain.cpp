@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 17:17:52 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/02 15:05:55 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/02 22:58:30 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,13 @@ Brain::~Brain()
 	std::cout << "Brain destructor called ..." << std::endl;
 }
 
-void Brain::getIdeas(int index, int nbIdeasDisplay)
+void Brain::getIdeas(int index, int nbIdeasDisplay) const
 {
-	// std::cout << "Brain ideas : " << std::endl;
-	for (int i(index); i < nbIdeasDisplay; i++)
-		std::cout << _ideas[i] << i << " " << std::endl;
+	if (index < 0 || index >= 100 || index + nbIdeasDisplay > 100)
+	{
+		std::cout << "Invalid index range for Brain ideas." << std::endl;
+		return;
+	}
+	for (int i(0); i < nbIdeasDisplay; i++)
+		std::cout << _ideas[index + i] << index + i << " " << std::endl;
 }

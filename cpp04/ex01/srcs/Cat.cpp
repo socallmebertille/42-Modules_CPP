@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:03:27 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/02 15:05:17 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 00:25:14 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal()
+Cat::Cat(): Animal(), _catBrain(new Brain())
 {
 	std::cout << "Cat default constructor called ..." << std::endl;
 	_type = "Cat";
-	_catBrain = new Brain();
 }
 
-Cat::Cat(const Cat& cpy): Animal(cpy)
+Cat::Cat(const Cat& cpy): Animal(cpy), _catBrain(NULL)
 {
 	std::cout << "Cat copy constructor of " << cpy._type << " called ..." << std::endl;
 	*this = cpy;
@@ -31,14 +30,21 @@ Cat& Cat::operator=(const Cat& cpy)
 	if (this != &cpy)
 	{
 		Animal::operator=(cpy);
-		_catBrain = new Brain(*cpy._catBrain);
+		if (_catBrain)
+		{
+			delete _catBrain;
+			_catBrain = NULL;
+		}
+		if (cpy._catBrain)
+			_catBrain = new Brain(*cpy._catBrain);
 	}
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete _catBrain;
+	if (_catBrain)
+		delete _catBrain;
 	std::cout << "Cat destructor of " << _type << " called." << std::endl;
 }
 

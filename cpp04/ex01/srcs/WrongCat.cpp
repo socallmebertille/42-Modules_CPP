@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:48:22 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/01 17:05:28 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:25:27 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongCat::WrongCat(): WrongAnimal()
 	_type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat& cpy)
+WrongCat::WrongCat(const WrongCat& cpy): WrongAnimal(cpy)
 {
 	std::cout << "WrongCat copy constructor of " << cpy._type << " called ..." << std::endl;
 	*this = cpy;
