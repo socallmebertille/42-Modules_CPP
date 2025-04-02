@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:03:23 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/01 16:39:54 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:48:09 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Cat : public Animal
 	Cat();
 	Cat(const Cat& cpy);
 	Cat& operator=(const Cat& cpy);
-	virtual ~Cat();
-	virtual void makeSound(void) const;
+	~Cat();
+	void makeSound(void) const;
 };
 
 #endif
