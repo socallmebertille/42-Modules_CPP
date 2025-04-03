@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:19:04 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 12:20:08 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:04:44 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 # include <iostream>
 # include "AMateria.hpp"
 
-class Ice
+class Ice : public AMateria
 {
-  protected:
-	std::string _typeMateria;
   public:
 	Ice();
-	Ice(std::string const & type);
+	Ice(const Ice& cpy);
 	Ice& operator=(const Ice& cpy);
 	~Ice();
+	AMateria* clone() const;
+	void use(ICharacter& target);
 };
 
 #endif

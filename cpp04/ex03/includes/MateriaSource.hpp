@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 12:14:48 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 12:17:17 by saberton         ###   ########.fr       */
+/*   Created: 2025/04/03 14:37:35 by saberton          #+#    #+#             */
+/*   Updated: 2025/04/03 15:02:58 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-ICharacter::ICharacter()
+# include "IMateriaSource.hpp"
+
+class MateriaSource : public IMateriaSource
 {
-	
-}
+  public:
+	MateriaSource();
+	MateriaSource(const MateriaSource& cpy);
+	MateriaSource& operator=(const MateriaSource& cpy);
+	~MateriaSource();
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const & type);
+};
 
-// ICharacter::ICharacter(std::string const & type)
-// {
-	
-// }
-
-ICharacter& ICharacter::operator=(const ICharacter& cpy)
-{
-	
-}
-
-ICharacter::~ICharacter()
-{
-	
-}
+#endif

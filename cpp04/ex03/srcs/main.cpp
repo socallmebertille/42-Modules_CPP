@@ -6,11 +6,14 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:00:21 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 12:10:28 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:43:54 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
 
 int main()
 {
@@ -37,5 +40,8 @@ int main()
 	delete me;
 	delete src;
 
+	// ./Interface | cat -e should display :
+	// * shoots an ice bolt at bob *$
+	// * heals bob's wounds *$
 	return (0);
 }

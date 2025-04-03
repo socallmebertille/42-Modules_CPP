@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:08:59 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 12:17:36 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:04:05 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class AMateria
   public:
 	AMateria();
 	AMateria(std::string const & type);
+	AMateria(const AMateria& cpy);
 	AMateria& operator=(const AMateria& cpy);
 	virtual ~AMateria();
-	std::string const & getType() const; //Returns the materia type
+	std::string const & getType() const;
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
 };
