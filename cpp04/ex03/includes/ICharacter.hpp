@@ -6,15 +6,16 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:14:21 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 12:17:06 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:56:16 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include <iostream>
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

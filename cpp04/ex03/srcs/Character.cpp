@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:14:48 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 15:01:36 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:34:44 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,13 @@ std::string const & Character::getName() const { return (_name); }
 void Character::equip(AMateria* m)
 {
 	for (int i(0); i < 4; i++)
-		if (_slots[i])
+	{
+		if (!_slots[i])
+		{
 			_slots[i] = m;
+			return ;
+		}
+	}
 }
 
 void Character::unequip(int idx)
@@ -85,5 +90,10 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	_slots[idx]->use(target);
+	if (idx < 0 || idx > 3 || !_slots[idx])
+		return ;
+	if (_slots[idx]->getType() == "ice")
+		_slots[idx]->use(target);
+	else if (_slots[idx]->getType() == "cure")
+		_slots[idx]->use(target);
 }

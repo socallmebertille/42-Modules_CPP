@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:00:21 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 14:43:54 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:48:03 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
-	AMateria* tmp;
-
+	
 	std::cout << std::endl << "\033[38;5;45mInstances tests\033[0m" << std::endl;
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");

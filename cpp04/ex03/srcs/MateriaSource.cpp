@@ -12,45 +12,74 @@
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource(): IMateriaSource()
 {
 	std::cout << "MateriaSource default constructor called ..." << std::endl;
+	for (int i(0); i < 4; i++)
+		_materiaSource[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& cpy)
+MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(cpy)
 {
-	std::cout << "MateriaSource copy constructor of " << cpy._typeMateria << " called ..." << std::endl;
+	std::cout << "MateriaSource copy constructor called ..." << std::endl;
 	*this = cpy;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& cpy)
 {
-	std::cout << "MateriaSource copy assigment operator of " << cpy._typeMateria << " called ..." << std::endl;
+	std::cout << "MateriaSource copy assigment operator of called ..." << std::endl;
 	if (this != &cpy)
 	{
-		AMateria::operator=(cpy);
+		for (int i(0); i < 4; i++)
+		{
+			if (_materiaSource[i])
+			{
+				delete _materiaSource[i];
+				_materiaSource[i] = NULL;
+			}
+			if (cpy._materiaSource[i])
+				_materiaSource[i] = cpy._materiaSource[i];
+		}
 	}
 	return (*this);
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource deconstructor of " << _typeMateria << " called ..." << std::endl;
+	std::cout << "MateriaSource deconstructor called ..." << std::endl;
+	for (int i(0); i < 4; i++)
+	{
+		if (_materiaSource[i])
+		{
+			delete _materiaSource[i];
+			_materiaSource[i] = NULL;
+		}
+	}
 }
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* m)
 {
-	_typeMateria;
+	for (int i(0); i < 4; i++)
+	{
+		if (!_materiaSource[i])
+		{
+			_materiaSource[i] = m;
+			return ;
+		}
+	}
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	AMateria* newMateria;
-	if (type == "ice")
-		newMateria->clone();
-	else if (type == "cure")
-		newMateria->clone();
-	else
-		newMateria = NULL;
-	return (newMateria);
+	for (int i(0); i < 4; i++)
+	{
+		if (_materiaSource[i]->getType() == type)
+		{
+			if (type == "ice")
+				return (_materiaSource[i]->clone());
+			else if (type == "cure")
+				return (_materiaSource[i]->clone());
+		}
+	}
+	return (NULL);
 }
