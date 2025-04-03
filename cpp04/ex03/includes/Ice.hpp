@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 12:01:41 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 11:27:51 by saberton         ###   ########.fr       */
+/*   Created: 2025/04/03 12:19:04 by saberton          #+#    #+#             */
+/*   Updated: 2025/04/03 12:20:08 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include <iostream>
+# include "AMateria.hpp"
 
-class AAnimal
+class Ice
 {
   protected:
-	std::string _type;
-
+	std::string _typeMateria;
   public:
-	AAnimal();
-	AAnimal(const AAnimal& cpy);
-	AAnimal& operator=(const AAnimal& cpy);
-	virtual ~AAnimal();
-	virtual void makeSound(void) const = 0;
-	std::string getType(void) const;
+	Ice();
+	Ice(std::string const & type);
+	Ice& operator=(const Ice& cpy);
+	~Ice();
 };
 
 #endif

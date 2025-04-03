@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 12:03:43 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 11:28:57 by saberton         ###   ########.fr       */
+/*   Created: 2025/04/03 12:19:01 by saberton          #+#    #+#             */
+/*   Updated: 2025/04/03 12:21:11 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "AAnimal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include "AMateria.hpp"
 
-class Dog : public AAnimal
+class Cure
 {
-  private:
-	Brain* _dogBrain;
+  protected:
+	std::string _typeMateria;
   public:
-	Dog();
-	Dog(const Dog& cpy);
-	Dog& operator=(const Dog& cpy);
-	~Dog();
-	void makeSound(void) const;
-	void getIdeas(int index, int nbIdeasDisplay) const;
+	Cure();
+	Cure(std::string const & type);
+	Cure& operator=(const Cure& cpy);
+	~Cure();
 };
 
 #endif

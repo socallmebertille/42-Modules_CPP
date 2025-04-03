@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 12:00:21 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 11:46:17 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 12:05:59 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+	// Can't work as before
 	// AAnimal test;
 	// test.makeSound();
 	// AAnimal* test = new AAnimal();
