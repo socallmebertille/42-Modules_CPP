@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:14:48 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 19:34:44 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:48:44 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void Character::equip(AMateria* m)
 			return ;
 		}
 	}
+	std::cout << "The materia slots are full, you have to unequip 1 slot." << std::endl;
 }
 
 void Character::unequip(int idx)
@@ -92,8 +93,6 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3 || !_slots[idx])
 		return ;
-	if (_slots[idx]->getType() == "ice")
-		_slots[idx]->use(target);
-	else if (_slots[idx]->getType() == "cure")
+	if (_slots[idx]->getType() == "ice" || _slots[idx]->getType() == "cure")
 		_slots[idx]->use(target);
 }
