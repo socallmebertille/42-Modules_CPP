@@ -12,16 +12,18 @@
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(): IMateriaSource()
+MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource default constructor called ..." << std::endl;
 	for (int i(0); i < 4; i++)
 		_materiaSource[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(cpy)
+MateriaSource::MateriaSource(const MateriaSource& cpy)
 {
 	std::cout << "MateriaSource copy constructor called ..." << std::endl;
+	for (int i(0); i < 4; i++)
+		_materiaSource[i] = NULL;
 	*this = cpy;
 }
 
@@ -33,10 +35,8 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& cpy)
 		for (int i(0); i < 4; i++)
 		{
 			if (_materiaSource[i])
-			{
 				delete _materiaSource[i];
-				_materiaSource[i] = NULL;
-			}
+			_materiaSource[i] = NULL;
 			if (cpy._materiaSource[i])
 				_materiaSource[i] = cpy._materiaSource[i];
 		}

@@ -6,29 +6,31 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:14:48 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/04 13:55:50 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/04 16:13:00 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(): ICharacter(), _name("Default")
+Character::Character(): _name("Default")
 {
 	std::cout << "Character default constructor called ..." << std::endl;
 	for (int i(0); i < 4; i++)
 		_slots[i] = NULL;
 }
 
-Character::Character(std::string name): ICharacter(), _name(name)
+Character::Character(std::string name): _name(name)
 {
 	std::cout << "Character constructor of " << name << " called ..." << std::endl;
 	for (int i(0); i < 4; i++)
 		_slots[i] = NULL;
 }
 
-Character::Character(const Character& cpy): ICharacter()
+Character::Character(const Character& cpy)
 {
 	std::cout << "Character copy constructor of " << cpy._name << " called ..." << std::endl;
+	for (int i = 0; i < 4; i++)
+		_slots[i] = NULL;
 	*this = cpy;
 }
 
@@ -41,10 +43,8 @@ Character& Character::operator=(const Character& cpy)
 		for (int i(0); i < 4; i++)
 		{
 			if (_slots[i])
-			{
 				delete _slots[i];
-				_slots[i] = NULL;
-			}
+			_slots[i] = NULL;
 			if (cpy._slots[i])
 				_slots[i] = cpy._slots[i]->clone();
 		}
