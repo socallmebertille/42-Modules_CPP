@@ -34,7 +34,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& cpy)
 		{
 			if (_materiaSource[i])
 			{
-				// delete _materiaSource[i];
+				delete _materiaSource[i];
 				_materiaSource[i] = NULL;
 			}
 			if (cpy._materiaSource[i])
@@ -51,7 +51,7 @@ MateriaSource::~MateriaSource()
 	{
 		if (_materiaSource[i])
 		{
-			// delete _materiaSource[i];
+			delete _materiaSource[i];
 			_materiaSource[i] = NULL;
 		}
 	}
@@ -75,13 +75,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	for (int i(0); i < 4; i++)
 	{
 		if (_materiaSource[i] && _materiaSource[i]->getType() == type)
-		{
-			AMateria* tmp = _materiaSource[i];
-			// delete _materiaSource[i];
-			_materiaSource[i] = NULL;
-			return (tmp);
-		}
+			return (_materiaSource[i]->clone());
 	}
-	std::cout << "The materia sources are full or not learned yet." << std::endl;
+	std::cout << "The materia sources are not learned yet." << std::endl;
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 12:14:48 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/03 21:48:44 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:55:50 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Character& Character::operator=(const Character& cpy)
 				_slots[i] = NULL;
 			}
 			if (cpy._slots[i])
-				_slots[i] = cpy._slots[i];
+				_slots[i] = cpy._slots[i]->clone();
 		}
 	}
 	return (*this);
@@ -69,15 +69,24 @@ std::string const & Character::getName() const { return (_name); }
 
 void Character::equip(AMateria* m)
 {
-	for (int i(0); i < 4; i++)
+	if (!m)
+		return ;
+	int i(0);
+	for (; i < 4; i++)
 	{
 		if (!_slots[i])
 		{
-			_slots[i] = m;
-			return ;
+			_slots[i] = m->clone();
+			break ;
 		}
 	}
-	std::cout << "The materia slots are full, you have to unequip 1 slot." << std::endl;
+	if (m)
+	{
+		delete m;
+		m = NULL;
+	}
+	if (i == 4)
+		std::cout << "The materia slots are full, you have to unequip 1 slot." << std::endl;
 }
 
 void Character::unequip(int idx)
