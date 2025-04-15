@@ -1,11 +1,9 @@
-NAME		=	Interface
+NAME		=	Bureaucrat
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS_NAMES  = 	AMateria.cpp Ice.cpp Cure.cpp \
-				Character.cpp MateriaSource.cpp \
-				main.cpp
+SRCS_NAMES  = 	main.cpp Bureaucrat.cpp
 OBJS_NAMES  =	$(SRCS_NAMES:.cpp=.o)
 
 SRC_DIR		=	srcs
