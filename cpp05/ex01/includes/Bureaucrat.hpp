@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:08:56 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/16 16:31:06 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:19:54 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -39,6 +42,7 @@ class Bureaucrat
 	  public:
 		virtual const char* what() const throw();
 	};
+	void signForm(Form& form);
 };
 
 std::ostream &operator<<(std::ostream &flux, const Bureaucrat &myObject);

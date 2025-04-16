@@ -1,9 +1,9 @@
-NAME		=	Bureaucrat
+NAME		=	Form
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS_NAMES  = 	main.cpp Bureaucrat.cpp
+SRCS_NAMES  = 	main.cpp Bureaucrat.cpp Form.cpp
 OBJS_NAMES  =	$(SRCS_NAMES:.cpp=.o)
 
 SRC_DIR		=	srcs

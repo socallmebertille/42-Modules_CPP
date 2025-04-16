@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:08:59 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/16 16:24:24 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:31:39 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
 {
-	std::cout << "Bureaucrat default constructor called ..." << std::endl;
+	// std::cout << "Bureaucrat default constructor called ..." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-	std::cout << "Bureaucrat constructor of " << name << " called ..." << std::endl;
+	// std::cout << "Bureaucrat constructor of " << name << " called ..." << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
@@ -30,12 +30,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& cpy): _name(cpy._name)
 {
-	std::cout << "Bureaucrat copy constructor of " << cpy._name << " called ..." << std::endl;
+	// std::cout << "Bureaucrat copy constructor of " << cpy._name << " called ..." << std::endl;
 	*this = cpy;
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
 {
-	std::cout << "Bureaucrat copy assigment operator of " << cpy._name << " called ..." << std::endl;
+	// std::cout << "Bureaucrat copy assigment operator of " << cpy._name << " called ..." << std::endl;
 	if (this != &cpy)
 	{
 		_grade = cpy.getGrade();
@@ -45,7 +45,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat deconstructor of " << _name << " called." << std::endl;
+	// std::cout << "Bureaucrat deconstructor of " << _name << " called." << std::endl;
 }
 
 std::string Bureaucrat::getName() const { return (_name); }
@@ -70,14 +70,21 @@ Bureaucrat& Bureaucrat::operator--()
 	return (*this);
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("Grade too high !");
-}
+const char* Bureaucrat::GradeTooHighException::what() const throw() { return ("Grade too high !"); }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw() { return ("Grade too low !"); }
+
+void Bureaucrat::signForm(Form& form)
 {
-	return ("Grade too low !");
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &flux, const Bureaucrat &myObject)
