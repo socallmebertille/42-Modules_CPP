@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:44:51 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/17 18:17:07 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/17 19:05:29 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class AForm;
 
 class Intern
 {
-//   private:
   public:
 	Intern();
 	Intern(const Intern& cpy);

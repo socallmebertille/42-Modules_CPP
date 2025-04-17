@@ -6,24 +6,19 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:45:35 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/17 18:51:43 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/17 19:05:48 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern(/* args */)
-{
-}
+Intern::Intern() {}
 
 Intern::Intern(const Intern& cpy) { *this = cpy; }
 
 Intern& Intern::operator=(const Intern& cpy)
 {
-	if (this != &cpy)
-	{
-
-	}
+	(void)cpy;
 	return (*this);
 }
 
