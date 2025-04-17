@@ -1,10 +1,10 @@
-NAME		=	AForm
+NAME		=	Intern
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 SRCS_NAMES  = 	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS_NAMES  =	$(SRCS_NAMES:.cpp=.o)
 
 SRC_DIR		=	srcs

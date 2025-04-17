@@ -31,7 +31,7 @@ class AForm
 	AForm(std::string name, int gradeSign, int gradeExec);
 	AForm(const AForm& cpy);
 	AForm& operator=(const AForm& cpy);
-	~AForm();
+	virtual ~AForm();
 	std::string getName() const;
 	bool getSigned() const;
 	int getGradeSign() const;
