@@ -12,55 +12,77 @@
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter()
-{
-	// std::cout << "ScalarConverter default constructor called ..." << std::endl;
-}
+ScalarConverter::ScalarConverter() {}
 
-// ScalarConverter::ScalarConverter(std::string input)
-// {
-// 	// std::cout << "ScalarConverter constructor of " << name << " called ..." << std::endl;
-// }
+ScalarConverter::ScalarConverter(const ScalarConverter& cpy) { *this = cpy; }
 
-ScalarConverter::ScalarConverter(const ScalarConverter& cpy)
-{
-	// std::cout << "ScalarConverter copy constructor of " << cpy._name << " called ..." << std::endl;
-	*this = cpy;
-}
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& cpy)
 {
-	// std::cout << "ScalarConverter copy assigment operator of " << cpy._name << " called ..." << std::endl;
-	if (this != &cpy)
-	{
-		
-	}
+	(void)cpy;
 	return (*this);
 }
 
-ScalarConverter::~ScalarConverter()
+ScalarConverter::~ScalarConverter() {}
+
+int	isLetter(std::string letter)
 {
-	// std::cout << "ScalarConverter deconstructor of " << _name << " called." << std::endl;
+	if (letter.size() == 1 && (letter[0] < '0' || letter[0] > '9'))
+		return (1);
+	return (0);
 }
-# include <sstream>
+
 void ScalarConverter::convert(std::string input)
 {
+	//----------------PARING----------------------
+	std::stringstream ss(input);
+	int change;
+	if (!(ss >> change))
+	{
+		std::string pseudo_literals[3] = {"-inf", "+inf", "nan"};
+		for (int i(0); i < 3; i++)
+		{
+			if (pseudo_literals[i] == input || pseudo_literals[i] + "f" == input)
+				break ;
+			else if (i == 2 && input.size() > 1)
+			{
+				std::cout << RED << "Invalid input" << RESET << std::endl ;
+				return ;
+			}
+		}
 
-	// if (static_cast<char>(input))
+	}
 
-	std::cout << std::endl << "Conversion for ---> " << input << std::endl;
+	std::cout << std::endl << "Conv.  | -> " << input << std::endl;
+	std::cout << "-------+-------------" << std::endl;
+
+	//----------------CHAR----------------------
 	std::cout << "char   | ";
-	std::cout << "  " << input.c_str() << std::endl;
-	std::cout << "-------|-----------" << std::endl;
-	std::cout << "int    | ";
-	int myInt;
-	if (std::istringstream(input) >> myInt)
-		std::cout << myInt << std::endl;
+	if (!change)
+		std::cout << input.c_str() << std::endl;
 	else
-		std::cout << "no convert :(" << std::endl;
-	std::cout << "-------|-----------" << std::endl;
+		std::cout << YELLOW << "No convertable :(" << RESET << std::endl;
+	std::cout << "-------+-------------" << std::endl;
+
+	//----------------INT----------------------
+	std::cout << "int    | ";
+	if (!change && isLetter(input))
+		std::cout << static_cast<int>(input[0]) << std::endl;
+	else
+		std::cout << static_cast<int>(change) << std::endl;
+	std::cout << "-------+-------------" << std::endl;
+
+	//----------------FLOAT----------------------
 	std::cout << "float  | ";
-	std::cout << input.c_str() << std::endl;
-	std::cout << "-------|-----------" << std::endl;
+	if (!change && isLetter(input))
+		std::cout << static_cast<float>(input[0]) << std::endl;
+	else
+		std::cout << static_cast<float>(change) << std::endl;
+	std::cout << "-------+-------------" << std::endl;
+
+	//----------------DOUBLE----------------------
 	std::cout << "double | ";
-	std::cout << input.c_str() << std::endl;
+	if (!change && isLetter(input))
+		std::cout << static_cast<double>(input[0]) << std::endl;
+	else
+		std::cout << static_cast<double>(change) << std::endl;
 }
