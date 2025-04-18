@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:08:56 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/18 18:40:45 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:46:43 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@
 
 # include <iostream>
 # include <sstream>
+# include <iomanip>
+# include <cstdlib>
 
 class ScalarConverter
 {
-//   private:
-  public:
+	//   public:
+  private:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& cpy);
 	ScalarConverter& operator=(const ScalarConverter& cpy);
 	~ScalarConverter();
-//   public:
+  public:
 	static void convert(std::string input);
 };
 
