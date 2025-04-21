@@ -96,7 +96,7 @@ void ScalarConverter::convert(std::string input)
 	//----------------CHAR----------------------
 	std::cout << "char   | ";
 	if (isLetter(input))
-		std::cout << static_cast<char>(input[0]) << std::endl;
+		std::cout << "\'" << static_cast<char>(input[0]) << "\'" << std::endl;
 	else if (input[0] == '4' && input[1] == '2')
 		std::cout << "\'*\'" << std::endl;
 	else if (change >= 32 && change <= 126)
@@ -127,6 +127,8 @@ void ScalarConverter::convert(std::string input)
 		std::cout << input << std::endl;
 	else if (backToString.str() != inputWithoutF)
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
+	else if (isNumber(input) == 0)
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(change) << "f" << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(isNumber(input)) << static_cast<float>(change) << "f" << std::endl;
 	std::cout << "-------+-------------" << std::endl;
@@ -145,6 +147,8 @@ void ScalarConverter::convert(std::string input)
 	}
 	else if (backToString.str() != inputWithoutF)
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
+	else if (isNumber(input) == 0)
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(change) << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(isNumber(input)) << static_cast<double>(change) << std::endl;
 }
