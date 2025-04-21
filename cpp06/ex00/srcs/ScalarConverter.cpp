@@ -69,13 +69,37 @@ int isPseudoLiterals(std::string input)
 	}
 	return (0);
 }
+#include <cmath>
+#include <cerrno>
 
 void ScalarConverter::convert(std::string input)
 {
 	//----------------PARING----------------------
 	int pseudoLiterals = isPseudoLiterals(input);
-	double change;
-	std::stringstream(input) >> change;
+	// double change;
+	// std::stringstream(input) >> change;
+	char* endptr = NULL;
+	// double change = std::strtod(input.c_str(), &endptr);
+	errno = 0;
+
+	double rawDouble = std::strtod(input.c_str(), &endptr);
+
+	if (errno == ERANGE || rawDouble == HUGE_VAL || rawDouble == -HUGE_VAL)
+	{
+		std::cout << std::endl << CYAN << "Conv.  | -> " << input << RESET << std::endl;
+		std::cout << "-------+-------------" << std::endl;
+		std::cout << "char   | " << YELLOW << "impossible" << RESET << std::endl;
+		std::cout << "-------+-------------" << std::endl;
+		std::cout << "int    | " << YELLOW << "impossible" << RESET << std::endl;
+		std::cout << "-------+-------------" << std::endl;
+		std::cout << "float  | " << YELLOW << "impossible" << RESET << std::endl;
+		std::cout << "-------+-------------" << std::endl;
+		std::cout << "double | " << YELLOW << "impossible" << RESET << std::endl;
+		return;
+	}
+
+	float change = static_cast<float>(rawDouble);
+
 	std::cout << std::endl << CYAN << "Conv.  | -> " << input << RESET << std::endl;
 	std::cout << "-------+-------------" << std::endl;
 
@@ -85,7 +109,9 @@ void ScalarConverter::convert(std::string input)
 		std::cout << static_cast<char>(input[0]) << std::endl;
 	else if (input[0] == '4' && input[1] == '2')
 		std::cout << "\'*\'" << std::endl;
-	else if (pseudoLiterals)
+	else if (change >= 32 && change <= 126)
+		std::cout << "\'" << static_cast<char>(change) << "\'" << std::endl;
+	else if (pseudoLiterals  || change < std::numeric_limits<char>::min() || change > std::numeric_limits<char>::max())
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	else
 		std::cout << YELLOW << "Non displayable" << RESET << std::endl;
@@ -95,7 +121,7 @@ void ScalarConverter::convert(std::string input)
 	std::cout << "int    | ";
 	if (isLetter(input))
 		std::cout << static_cast<int>(input[0]) << std::endl;
-	else if (pseudoLiterals)
+	else if (pseudoLiterals || change < std::numeric_limits<int>::min() || change > std::numeric_limits<int>::max())
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	else
 		std::cout << static_cast<int>(change) << std::endl;
@@ -109,6 +135,8 @@ void ScalarConverter::convert(std::string input)
 		std::cout << input + "f" << std::endl;
 	else if (pseudoLiterals == 2)
 		std::cout << input << std::endl;
+	else if (change < -std::numeric_limits<float>::max() || change > std::numeric_limits<float>::max())
+		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	else if (isNumber(input) > 0)
 		std::cout << std::fixed << std::setprecision(isNumber(input)) << static_cast<float>(change) << "f" << std::endl;
 	else
@@ -127,6 +155,8 @@ void ScalarConverter::convert(std::string input)
 			std::cout << input[i];
 		std::cout << std::endl;
 	}
+	else if (change < -std::numeric_limits<double>::max() || change > std::numeric_limits<double>::max())
+		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	else if (isNumber(input) > 0)
 		std::cout << std::fixed << std::setprecision(isNumber(input)) << static_cast<double>(change) << std::endl;
 	else

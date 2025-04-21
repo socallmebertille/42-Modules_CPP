@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:08:56 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/20 03:18:32 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/21 20:07:55 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include <sstream>
 # include <iomanip>
 # include <cstdlib>
+# include <limits>
 
 class ScalarConverter
 {
