@@ -71,3 +71,9 @@ echo -e "${GREEN}========= Pseudo literal float test ==========${RESET}"
 ./convert -inff
 
 ./convert nanf
+
+echo -e "${GREEN}========= Overflow test ==========${RESET}"
+
+./convert 99999999999
+
+./convert 9999999999999999
