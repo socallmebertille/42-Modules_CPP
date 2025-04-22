@@ -14,10 +14,18 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <stdexcept>
 
-template <class T> void easyfind(T& a, int b)
+template <class T> void easyfind(T& container, int toFind)
 {
-	
+	for (int i(0); i < container.size(); i++)
+	{
+		if (container[i] == toFind)
+		{
+			std::cout << "Occurence of [" << toFind << "] find at index[" << i << "]" << std::endl;
+		}
+	}
+	throw (std::)
 }
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:55:35 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/22 22:01:05 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/22 22:15:18 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "easyfind.hpp"
 
-int main(int, char**)
+int main(void)
 {
     
     return (0);
