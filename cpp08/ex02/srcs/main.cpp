@@ -6,14 +6,13 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 16:47:12 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/22 22:11:43 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/22 21:57:32 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
-#include "Array.hpp"
-#include "Array.tpp"
+#include "../includes/Array.hpp"
 
 #define MAX_VAL 750
 
