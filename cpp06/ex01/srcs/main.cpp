@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:09:01 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/22 02:32:07 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/22 04:28:54 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int main(void)
 	std::cout << "Original data value      : " << data.value << std::endl;
 	std::cout << "Original data name       : " << data.name << std::endl << std::endl;
 
-	// Sérialisation
 	uintptr_t raw = Serializer::serialize(&data);
-
-	// Désérialisation
 	Data* newPtr = Serializer::deserialize(raw);
 	
 	std::cout << "Deserialaze data address : " << &newPtr << std::endl;

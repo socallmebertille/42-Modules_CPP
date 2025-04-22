@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                  :+:      :+:    :+:   */
+/*   Base.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
-
-/*Colors*/
-# define RESET "\e[0m"
-# define RED "\e[1;91m"
-# define GREEN "\e[1;92m"
+#ifndef BASE_HPP
+# define BASE_HPP
 
 # include <iostream>
-# include <stdint.h>
-# include "Data.hpp"
 
-class Serializer
+class Base
 {
-  private:
-	Serializer();
-	Serializer(const Serializer& cpy);
-	Serializer& operator=(const Serializer& cpy);
-	~Serializer();
-	
   public:
-	static uintptr_t serialize(Data* ptr);
-	static Data* deserialize(uintptr_t raw);
+	virtual ~Base();
 };
 
 #endif
