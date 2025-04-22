@@ -1,4 +1,4 @@
-NAME		=	convert
+NAME		=	array
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
