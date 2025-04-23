@@ -15,17 +15,19 @@
 
 # include <iostream>
 # include <stdexcept>
+# include <algorithm>
+# include <sstream>
 
-template <class T> void easyfind(T& container, int toFind)
+template <typename T> void easyfind(const T& container, const int toFind)
 {
-	for (int i(0); i < container.size(); i++)
+	typename T::const_iterator it = std::find(container.begin(), container.end(), toFind);
+	if (it == container.end())
 	{
-		if (container[i] == toFind)
-		{
-			std::cout << "Occurence of [" << toFind << "] find at index[" << i << "]" << std::endl;
-		}
+		std::stringstream ss;
+		ss << toFind;
+		throw(std::runtime_error("Occurence of [" + ss.str() + "] not found"));
 	}
-	throw (std::)
+	std::cout << "Occurence of [" << toFind << "] find at index[" << std::distance(container.begin(), it) << "]" << std::endl;
 }
 
 #endif

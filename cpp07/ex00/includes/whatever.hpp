@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-template <class whatever> void swap(whatever& a, whatever& b)
+template <typename whatever> void swap(whatever& a, whatever& b)
 {
 	whatever	tmp;
 
@@ -24,14 +24,14 @@ template <class whatever> void swap(whatever& a, whatever& b)
 	b = tmp;
 }
 
-template <class whatever> const whatever min(const whatever& a, const whatever& b)
+template <typename whatever> const whatever min(const whatever& a, const whatever& b)
 {
 	whatever	result;
 
 	result = (a < b) ? a : b;
 	return (result);
 }
-template <class whatever> const whatever max(const whatever& a, const whatever& b)
+template <typename whatever> const whatever max(const whatever& a, const whatever& b)
 {
 	whatever	result; 
 

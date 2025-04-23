@@ -16,7 +16,7 @@
 # include <iostream>
 # include <stdexcept>
 
-template <class T>
+template <typename T>
 class Array
 {
   private:
@@ -43,7 +43,7 @@ class Array
 // # include <iostream>
 // # include <stdexcept>
 //
-// template <class T>
+// template <typename T>
 // class Array
 // {
 //   private:

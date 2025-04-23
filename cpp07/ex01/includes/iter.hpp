@@ -15,19 +15,19 @@
 
 # include <iostream>
 
-template <class T> void iter(T* array, int lenArray, void (*f)(T&))
+template <typename T> void iter(T* array, int lenArray, void (*f)(T&))
 {
 	for (int i(0); i < lenArray; i++)
 		f(array[i]);
 }
 
-template <class T> void iter(const T* array, int lenArray, void (*f)(const T&))
+template <typename T> void iter(const T* array, int lenArray, void (*f)(const T&))
 {
 	for (int i(0); i < lenArray; i++)
 		f(array[i]);
 }
 
-template <class T> void printWathever(const T& array)
+template <typename T> void printWathever(const T& array)
 {
 	std::cout << array << std::endl;
 }
