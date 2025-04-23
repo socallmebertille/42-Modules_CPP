@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                :+:      :+:    :+:   */
+/*   Span.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 # include <iostream>
+# include <vector>
+# include <sstream>
+# include <algorithm>
+# include <stdexcept>
+# include <limits>
 
-template <class T> void iter(T* array, int lenArray, void (*f)(T&))
+class Span
 {
-	for (int i(0); i < lenArray; i++)
-		f(array[i]);
-}
-
-template <class T> void iter(const T* array, int lenArray, void (*f)(const T&))
-{
-	for (int i(0); i < lenArray; i++)
-		f(array[i]);
-}
-
-template <class T> void printWathever(const T& array)
-{
-	std::cout << array << std::endl;
-}
+  private:
+	unsigned int _N;
+	unsigned int _added;
+	int* _storage;
+  public:
+	Span();
+	Span(unsigned int N);
+	Span(const Span& cpy);
+	Span& operator=(const Span& cpy);
+	~Span();
+	unsigned int getN();
+	void addNumber(int number);
+	void addMultipleNumbers(Span& rangeOfNumbers);
+	int shortestSpan() const;
+	int longestSpan() const;
+};
 
 #endif

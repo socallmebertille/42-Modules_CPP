@@ -1,9 +1,9 @@
-NAME		=	iter
+NAME		=	ex01
 
 C			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS_NAMES  = 	main.cpp
+SRCS_NAMES  = 	main.cpp Span.cpp
 OBJS_NAMES  =	$(SRCS_NAMES:.cpp=.o)
 
 SRC_DIR		=	srcs
