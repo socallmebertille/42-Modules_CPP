@@ -18,16 +18,16 @@
 # include <algorithm>
 # include <sstream>
 
-template <typename T> void easyfind(const T& container, const int toFind)
+template <typename T> typename T::iterator easyfind(T& container, int toFind)
 {
-	typename T::const_iterator it = std::find(container.begin(), container.end(), toFind);
+	typename T::iterator it = std::find(container.begin(), container.end(), toFind);
 	if (it == container.end())
 	{
 		std::stringstream ss;
 		ss << toFind;
 		throw(std::runtime_error("Occurence of [" + ss.str() + "] not found"));
 	}
-	std::cout << "Occurence of [" << toFind << "] find at index[" << std::distance(container.begin(), it) << "]" << std::endl;
+	return (it);
 }
 
 #endif

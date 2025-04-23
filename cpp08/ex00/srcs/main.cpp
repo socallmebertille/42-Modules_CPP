@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:55:35 by saberton          #+#    #+#             */
-/*   Updated: 2025/04/23 12:47:09 by saberton         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:15:49 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@
 
 int main(void)
 {
-	std::vector<int> tab;
-	tab.push_back(10);
-	tab.push_back(42);
-	tab.push_back(1337);
+	std::vector<int> container;
+	container.push_back(10);
+	container.push_back(42);
+	container.push_back(1337);
 
 	try
 	{
-		::easyfind(tab, 42);
-		::easyfind(tab, 10);
-		::easyfind(tab, 9);
+		std::vector<int>::iterator it;
+		it = easyfind(container, 42);
+		std::cout << "Occurence of [" << *it << "] find at index[" << std::distance(container.begin(), it) << "]" << std::endl;
+		it = easyfind(container, 10);
+		std::cout << "Occurence of [" << *it << "] find at index[" << std::distance(container.begin(), it) << "]" << std::endl;
+		it = easyfind(container, 9);
+		std::cout << "Occurence of [" << *it << "] find at index[" << std::distance(container.begin(), it) << "]" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
