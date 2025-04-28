@@ -53,6 +53,7 @@
         "csignal": "cpp",
         "fstream": "cpp",
         "bitset": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "list": "cpp"
     }
 }

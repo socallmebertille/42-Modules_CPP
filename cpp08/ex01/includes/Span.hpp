@@ -24,7 +24,6 @@ class Span
 {
   private:
 	unsigned int _N;
-	unsigned int _added;
 	std::vector <int> _storage;
   public:
 	Span();
@@ -35,13 +34,13 @@ class Span
 	unsigned int getN();
 	void printStorage();
 	void addNumber(int number);
-	std::vector<int>::iterator begin();
-	std::vector<int>::iterator end();
+	std::vector<int>::const_iterator begin() const;
+	std::vector<int>::const_iterator end() const;
 	template <typename It>void addMultipleNumbers(It begin, It end)
 	{
 		if (!_N)
 			throw(std::runtime_error("You've build a span with no space in it to store numbers"));
-		if (_added >= _N)
+		if (_storage.size() >= _N)
 		{
 			std::stringstream ss;
 			ss << _N;
@@ -50,7 +49,6 @@ class Span
 		if (_storage.size() + std::distance(begin, end) > _N)
 			throw std::runtime_error("Not enough space to add all numbers!");
 		_storage.insert(_storage.end(), begin, end);
-		_added = (_storage.end() - _storage.begin());
 	}
 	int shortestSpan() const;
 	int longestSpan() const;
