@@ -54,6 +54,7 @@
         "fstream": "cpp",
         "bitset": "cpp",
         "*.tpp": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "map": "cpp"
     }
 }
