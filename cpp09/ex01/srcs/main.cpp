@@ -6,34 +6,21 @@
 /*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:45:44 by bertille          #+#    #+#             */
-/*   Updated: 2025/05/02 01:07:04 by bertille         ###   ########.fr       */
+/*   Updated: 2025/05/02 01:50:19 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 int main(int ac, char** av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Error: could not open file." << std::endl;
+		std::cout << "Error: no argument given. " << std::endl;
 		return (1);
 	}
-	std::ifstream input(av[1]);
-	if (!input)
-	{
-		std::cout << "Error: could not open file." << std::endl;
-		return (1);
-	}
-	try
-	{
-		BitcoinExchange btc;
-		btc.getPrice(av[1]);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-		return (1);
-	}
+	RPN calc;
+	calc.calculate(av[1]);
+	calc.calculate(av[1]);
 	return (0);
 }

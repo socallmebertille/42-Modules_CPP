@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # include <iostream>
-# include <fstream>
-# include <map>
-# include <stdexcept>
-# include <sstream>
-# include <cstdlib>
+# include <stack>
 
-class BitcoinExchange
+class RPN
 {
   private:
-	std::map <std::string, double> _data;
+	std::stack<int> _stack;
   public:
-	BitcoinExchange();
-	BitcoinExchange(const BitcoinExchange& cpy);
-	BitcoinExchange& operator=(const BitcoinExchange& cpy);
-	~BitcoinExchange();
-	void getPrice(std::string input);
+	RPN();
+	RPN(const RPN& cpy);
+	RPN& operator=(const RPN& cpy);
+	~RPN();
+	void calculate(std::string rpn);
 };
 
 
