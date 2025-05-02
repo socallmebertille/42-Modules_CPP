@@ -29,12 +29,12 @@ RPN::~RPN() {}
 void RPN::calculate(std::string rpn)
 {
 	while (!_stack.empty())
-    _stack.pop();
+	_stack.pop();
 	for (size_t i = 0; i < rpn.size(); ++i)
 	{
 		char c = rpn[i];
 		if (isspace(c))
-    		continue;
+			continue;
 		else if (isdigit(c))
 			_stack.push(c - '0');
 		else if (c == '+' || c == '-' || c == '*' || c == '/')
