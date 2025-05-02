@@ -14,18 +14,37 @@
 # define PMERGEME_HPP
 
 # include <iostream>
-# include <vector>
+# include <sstream>
+# include <cstdlib>
+# include <stdexcept>
+# include <deque>
 # include <list>
+# include <ctime>
+
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[38;5;220m"
+# define PINK    "\033[38;5;213m"
+# define CYAN    "\033[38;5;45m"
+# define RED     "\e[1;91m"
+# define BOLD    "\033[1m"
+# define RESET   "\033[0m"
 
 class PmergeMe
 {
   private:
-	
+	std::deque<int> _d;
+	std::list<int> _l;
   public:
 	PmergeMe();
 	PmergeMe(const PmergeMe& cpy);
 	PmergeMe& operator=(const PmergeMe& cpy);
 	~PmergeMe();
+	void initElems(const std::string elems);
+	// std::deque<int> getDeque(void);
+	// std::list<int> getList(void);
+	void printDeque(void) const;
+	void printList(void) const;
+	void sortAlgo(void);
 };
 
 

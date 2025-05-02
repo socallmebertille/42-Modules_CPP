@@ -39,7 +39,7 @@ void RPN::calculate(std::string rpn)
 			_stack.push(c - '0');
 		else if (c == '+' || c == '-' || c == '*' || c == '/')
 		{
-			if (_stack.size() < 2) { std::cout << "Error: missing a number at the beginning." << std::endl; return; }
+			if (_stack.size() < 2) { std::cerr << "Error: missing a number at the beginning." << std::endl; return; }
 			int b = _stack.top(); _stack.pop();
 			int a = _stack.top(); _stack.pop();
 			int res;
@@ -48,17 +48,17 @@ void RPN::calculate(std::string rpn)
 				case '-': res = a - b; break;
 				case '*': res = a * b; break;
 				case '/': 
-					if (b == 0) { std::cout << "Error: division by zero forbidden." << std::endl; return; }
+					if (b == 0) { std::cerr << "Error: division by zero forbidden." << std::endl; return; }
 					res = a / b; 
 					break;
 			}
 			_stack.push(res);
 		}
-		else { std::cout << "Error: wrong character." << std::endl; return; }
+		else { std::cerr << "Error: wrong character." << std::endl; return; }
 	}
 	if (_stack.size() == 1)
 		std::cout << _stack.top() << std::endl;
 	else
-		std::cout << "Error: number left after making calcul." << std::endl;
+		std::cerr << "Error: number left after making calcul." << std::endl;
 
 }

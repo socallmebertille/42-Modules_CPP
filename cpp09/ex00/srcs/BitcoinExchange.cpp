@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:47:46 by bertille          #+#    #+#             */
-/*   Updated: 2025/05/01 23:30:11 by bertille         ###   ########.fr       */
+/*   Updated: 2025/05/02 16:08:14 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,21 +118,21 @@ void BitcoinExchange::getPrice(std::string input)
 				valueStr.clear();
 			std::istringstream ss2(valueStr);
 			if (!(ss2 >> value))
-				std::cout << "Error: no number for the date." << std::endl;
+				std::cerr << "Error: no number for the date." << std::endl;
 			else if (value < 0)
-				std::cout << "Error: not a positive number." << std::endl;
+				std::cerr << "Error: not a positive number." << std::endl;
 			else if (value >= 1000)
-				std::cout << "Error: too large a number." << std::endl;
+				std::cerr << "Error: too large a number." << std::endl;
 			else if (checkFormatDate(date) == false)
-				std::cout << "Error: wrong date format Year-Month-Day." << std::endl;
+				std::cerr << "Error: wrong date format Year-Month-Day." << std::endl;
 			else if (checkValidDate(date) == false)
-				std::cout << "Error: date isn't valid." << std::endl;
+				std::cerr << "Error: date isn't valid." << std::endl;
 			else
 				findValue(value, date, _data);
 			found_valid_line = true;
 		}
 		else if (line != "date | value")
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 	}
 	if (!found_valid_line)
 		throw(std::runtime_error("No valid data found in data file."));
