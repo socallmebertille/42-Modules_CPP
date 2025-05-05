@@ -81,7 +81,43 @@ void PmergeMe::printList(void) const
 	std::cout << RESET << " ]" << std::endl;
 }
 
+void	displayTimestamp(void)
+{
+	std::time_t now = std::time(NULL);
+	std::tm* localTime = std::localtime(&now);
+	char buffer[20];
+	std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", localTime);
+	std::cout << std::string(buffer);
+}
+
 void PmergeMe::sortAlgo(void)
 {
+	std::cout << BOLD << "Before" << RESET;
+	printDeque();
+	std::cout << BOLD << "Before" << RESET;
+	printList();
 
+	std::cout << std::endl << "		———————————		" << std::endl << std::endl;
+
+	clock_t start = clock();
+
+	//________________ALGO____________________
+
+
+
+	//________________________________________
+
+	clock_t end = clock();
+
+	std::cout << BOLD << "After" << RESET;
+	printDeque();
+	std::cout << BOLD << "After" << RESET;
+	printList();
+
+	std::cout << std::endl << "		———————————		" << std::endl << std::endl;
+
+	std::cout << "Time to process a range of " << _d.size() << " elements with std::" << "deque" << ": ";
+	float elapsed_secs = float(end - start) / CLOCKS_PER_SEC;
+	float elapsed_us = elapsed_secs * 1000000;
+	std::cout << elapsed_us << " us" << std::endl;
 }

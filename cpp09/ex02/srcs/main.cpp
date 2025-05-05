@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:45:44 by bertille          #+#    #+#             */
-/*   Updated: 2025/05/02 20:26:26 by saberton         ###   ########.fr       */
+/*   Updated: 2025/05/05 14:11:02 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,23 @@ int main(int ac, char** av)
 	{
 		PmergeMe a;
 		a.initElems(newAv);
-		std::cout << BOLD << "Before" << RESET;
-		a.printDeque();
-		std::cout << BOLD << "Before" << RESET;
-		a.printList();
+		// std::cout << BOLD << "Before" << RESET;
+		// a.printDeque();
+		// std::cout << BOLD << "Before" << RESET;
+		// a.printList();
 
-		std::cout << std::endl << "		———————————		" << std::endl << std::endl;
+		// std::cout << std::endl << "		———————————		" << std::endl << std::endl;
 	
 		a.sortAlgo();
-		std::cout << BOLD << "After" << RESET;
-		a.printDeque();
-		std::cout << BOLD << "After" << RESET;
-		a.printList();
+		// std::cout << BOLD << "After" << RESET;
+		// a.printDeque();
+		// std::cout << BOLD << "After" << RESET;
+		// a.printList();
+
+		// std::cout << std::endl << "		———————————		" << std::endl << std::endl;
+
+		// std::cout << "Time to process a range of " << "_N" << " elements with std::" << "vector" << ": ";
+		
 	}
 	catch(const std::exception& e)
 	{
