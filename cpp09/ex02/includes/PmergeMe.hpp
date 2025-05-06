@@ -17,6 +17,9 @@
 # include <sstream>
 # include <cstdlib>
 # include <stdexcept>
+# include <algorithm>
+# include <iterator>
+# include <vector>
 # include <deque>
 # include <list>
 # include <ctime>
@@ -34,14 +37,16 @@ class PmergeMe
   private:
 	std::deque<int> _d;
 	std::list<int> _l;
+	float sortDeque(void);
+	float sortList(void);
+	// std::deque<int> fordJohnsonDeque(std::deque<int> input);
+	// std::list<int> fordJohnsonList(std::list<int> input);
   public:
 	PmergeMe();
 	PmergeMe(const PmergeMe& cpy);
 	PmergeMe& operator=(const PmergeMe& cpy);
 	~PmergeMe();
 	void initElems(const std::string elems);
-	// std::deque<int> getDeque(void);
-	// std::list<int> getList(void);
 	void printDeque(void) const;
 	void printList(void) const;
 	void sortAlgo(void);

@@ -6,7 +6,7 @@
 /*   By: bertille <bertille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:45:44 by bertille          #+#    #+#             */
-/*   Updated: 2025/05/05 14:11:02 by bertille         ###   ########.fr       */
+/*   Updated: 2025/05/06 16:37:42 by bertille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int main(int ac, char** av)
 		std::cerr << "Error: no argument given. " << std::endl;
 		return (1);
 	}
-	// max 3000 int					OK
-	// sortie :
-	// before : list non-sort
-	// after : list sort
-	// Time to process a range of _N elements with std::vector: _T us
-	// Time to process a range of _N elements with std::deque: _T us
 	std::string newAv(av[1]);
 	if (ac != 2)
 	{
@@ -38,23 +32,7 @@ int main(int ac, char** av)
 	{
 		PmergeMe a;
 		a.initElems(newAv);
-		// std::cout << BOLD << "Before" << RESET;
-		// a.printDeque();
-		// std::cout << BOLD << "Before" << RESET;
-		// a.printList();
-
-		// std::cout << std::endl << "		———————————		" << std::endl << std::endl;
-	
 		a.sortAlgo();
-		// std::cout << BOLD << "After" << RESET;
-		// a.printDeque();
-		// std::cout << BOLD << "After" << RESET;
-		// a.printList();
-
-		// std::cout << std::endl << "		———————————		" << std::endl << std::endl;
-
-		// std::cout << "Time to process a range of " << "_N" << " elements with std::" << "vector" << ": ";
-		
 	}
 	catch(const std::exception& e)
 	{
