@@ -84,84 +84,84 @@ static std::vector<int> generateJacobsthal(int max)
 }
 
 static std::vector<std::pair<int, int> > createPairs(const std::vector<int>& temp, int& unpaired, bool& hasUnpaired) {
-    std::vector<std::pair<int, int> > pairs;
-    for (size_t i = 0; i < temp.size(); i += 2) {
-        if (i + 1 < temp.size()) {
-            int a = temp[i], b = temp[i + 1];
-            if (a > b) std::swap(a, b);
-            pairs.push_back(std::make_pair(a, b));
-        } else {
-            unpaired = temp[i];
-            hasUnpaired = true;
-        }
-    }
-    return pairs;
+	std::vector<std::pair<int, int> > pairs;
+	for (size_t i = 0; i < temp.size(); i += 2) {
+		if (i + 1 < temp.size()) {
+			int a = temp[i], b = temp[i + 1];
+			if (a > b) std::swap(a, b);
+			pairs.push_back(std::make_pair(a, b));
+		} else {
+			unpaired = temp[i];
+			hasUnpaired = true;
+		}
+	}
+	return pairs;
 }
 
 // ========================= DEQUE ==================================================
 
 static std::deque<int> extractWinnersDeque(const std::vector<std::pair<int, int> >& pairs) {
-    std::deque<int> winners;
-    for (size_t i = 0; i < pairs.size(); ++i)
-        winners.push_back(pairs[i].first);
-    return winners;
+	std::deque<int> winners;
+	for (size_t i = 0; i < pairs.size(); ++i)
+		winners.push_back(pairs[i].first);
+	return winners;
 }
 
 static void insertUnpairedDeque(std::deque<int>& winners, int unpaired) {
-    std::deque<int>::iterator it = winners.begin();
-    while (it != winners.end() && *it < unpaired)
-        ++it;
-    winners.insert(it, unpaired);
+	std::deque<int>::iterator it = winners.begin();
+	while (it != winners.end() && *it < unpaired)
+		++it;
+	winners.insert(it, unpaired);
 }
 
 static void insertLosersDeque(std::deque<int>& winners, const std::vector<std::pair<int, int> >& pairs,
-                       const std::vector<int>& jac, std::vector<bool>& inserted) {
-    for (size_t j = 0; j < jac.size(); ++j) {
-        int idx = jac[j] - 1;
-        if (idx >= 0 && idx < static_cast<int>(pairs.size()) && !inserted[idx]) {
-            int winner = pairs[idx].first;
-            int loser = pairs[idx].second;
-            std::deque<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
-            if (it != winners.end()) ++it;
-            while (it != winners.end() && *it < loser)
-                ++it;
-            winners.insert(it, loser);
-            inserted[idx] = true;
-        }
-    }
+					   const std::vector<int>& jac, std::vector<bool>& inserted) {
+	for (size_t j = 0; j < jac.size(); ++j) {
+		int idx = jac[j] - 1;
+		if (idx >= 0 && idx < static_cast<int>(pairs.size()) && !inserted[idx]) {
+			int winner = pairs[idx].first;
+			int loser = pairs[idx].second;
+			std::deque<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
+			if (it != winners.end()) ++it;
+			while (it != winners.end() && *it < loser)
+				++it;
+			winners.insert(it, loser);
+			inserted[idx] = true;
+		}
+	}
 }
 
 static void insertRemainingLosersDeque(std::deque<int>& winners, const std::vector<std::pair<int, int> >& pairs,
-                                std::vector<bool>& inserted) {
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        if (!inserted[i]) {
-            int winner = pairs[i].first;
-            int loser = pairs[i].second;
-            std::deque<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
-            if (it != winners.end()) ++it;
-            while (it != winners.end() && *it < loser)
-                ++it;
-            winners.insert(it, loser);
-        }
-    }
+								std::vector<bool>& inserted) {
+	for (size_t i = 0; i < pairs.size(); ++i) {
+		if (!inserted[i]) {
+			int winner = pairs[i].first;
+			int loser = pairs[i].second;
+			std::deque<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
+			if (it != winners.end()) ++it;
+			while (it != winners.end() && *it < loser)
+				++it;
+			winners.insert(it, loser);
+		}
+	}
 }
 
 static std::deque<int> fordJohnsonDeque(std::deque<int> input) {
-    if (input.size() <= 1)
-        return input;
-    std::vector<int> temp(input.begin(), input.end());
-    int unpaired = 0;
-    bool hasUnpaired = false;
-    std::vector<std::pair<int, int> > pairs = createPairs(temp, unpaired, hasUnpaired);
-    std::deque<int> winners = extractWinnersDeque(pairs);
-    winners = fordJohnsonDeque(winners);
-    if (hasUnpaired)
-        insertUnpairedDeque(winners, unpaired);
-    std::vector<int> jac = generateJacobsthal(static_cast<int>(pairs.size()));
-    std::vector<bool> inserted(pairs.size(), false);
-    insertLosersDeque(winners, pairs, jac, inserted);
-    insertRemainingLosersDeque(winners, pairs, inserted);
-    return winners;
+	if (input.size() <= 1)
+		return input;
+	std::vector<int> temp(input.begin(), input.end());
+	int unpaired = 0;
+	bool hasUnpaired = false;
+	std::vector<std::pair<int, int> > pairs = createPairs(temp, unpaired, hasUnpaired);
+	std::deque<int> winners = extractWinnersDeque(pairs);
+	winners = fordJohnsonDeque(winners);
+	if (hasUnpaired)
+		insertUnpairedDeque(winners, unpaired);
+	std::vector<int> jac = generateJacobsthal(static_cast<int>(pairs.size()));
+	std::vector<bool> inserted(pairs.size(), false);
+	insertLosersDeque(winners, pairs, jac, inserted);
+	insertRemainingLosersDeque(winners, pairs, inserted);
+	return winners;
 }
 
 float PmergeMe::sortDeque(void)
@@ -177,67 +177,67 @@ float PmergeMe::sortDeque(void)
 // ========================= LIST ===================================================
 
 static std::list<int> extractWinnersList(const std::vector<std::pair<int, int> >& pairs) {
-    std::list<int> winners;
-    for (size_t i = 0; i < pairs.size(); ++i)
-        winners.push_back(pairs[i].first);
-    return winners;
+	std::list<int> winners;
+	for (size_t i = 0; i < pairs.size(); ++i)
+		winners.push_back(pairs[i].first);
+	return winners;
 }
 
 static void insertUnpairedList(std::list<int>& winners, int unpaired) {
-    std::list<int>::iterator it = winners.begin();
-    while (it != winners.end() && *it < unpaired)
-        ++it;
-    winners.insert(it, unpaired);
+	std::list<int>::iterator it = winners.begin();
+	while (it != winners.end() && *it < unpaired)
+		++it;
+	winners.insert(it, unpaired);
 }
 
 static void insertLosersList(std::list<int>& winners, const std::vector<std::pair<int, int> >& pairs,
-                      const std::vector<int>& jac, std::vector<bool>& inserted) {
-    for (size_t j = 0; j < jac.size(); ++j) {
-        int idx = jac[j] - 1;
-        if (idx >= 0 && idx < static_cast<int>(pairs.size()) && !inserted[idx]) {
-            int winner = pairs[idx].first;
-            int loser = pairs[idx].second;
-            std::list<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
-            if (it != winners.end()) ++it;
-            while (it != winners.end() && *it < loser)
-                ++it;
-            winners.insert(it, loser);
-            inserted[idx] = true;
-        }
-    }
+					  const std::vector<int>& jac, std::vector<bool>& inserted) {
+	for (size_t j = 0; j < jac.size(); ++j) {
+		int idx = jac[j] - 1;
+		if (idx >= 0 && idx < static_cast<int>(pairs.size()) && !inserted[idx]) {
+			int winner = pairs[idx].first;
+			int loser = pairs[idx].second;
+			std::list<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
+			if (it != winners.end()) ++it;
+			while (it != winners.end() && *it < loser)
+				++it;
+			winners.insert(it, loser);
+			inserted[idx] = true;
+		}
+	}
 }
 
 static void insertRemainingLosersList(std::list<int>& winners, const std::vector<std::pair<int, int> >& pairs,
-                               std::vector<bool>& inserted) {
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        if (!inserted[i]) {
-            int winner = pairs[i].first;
-            int loser = pairs[i].second;
-            std::list<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
-            if (it != winners.end()) ++it;
-            while (it != winners.end() && *it < loser)
-                ++it;
-            winners.insert(it, loser);
-        }
-    }
+							   std::vector<bool>& inserted) {
+	for (size_t i = 0; i < pairs.size(); ++i) {
+		if (!inserted[i]) {
+			int winner = pairs[i].first;
+			int loser = pairs[i].second;
+			std::list<int>::iterator it = std::find(winners.begin(), winners.end(), winner);
+			if (it != winners.end()) ++it;
+			while (it != winners.end() && *it < loser)
+				++it;
+			winners.insert(it, loser);
+		}
+	}
 }
 
 static std::list<int> fordJohnsonList(std::list<int> input) {
-    if (input.size() <= 1)
-        return input;
-    std::vector<int> temp(input.begin(), input.end());
-    int unpaired = 0;
-    bool hasUnpaired = false;
-    std::vector<std::pair<int, int> > pairs = createPairs(temp, unpaired, hasUnpaired);
-    std::list<int> winners = extractWinnersList(pairs);
-    winners = fordJohnsonList(winners);
-    if (hasUnpaired)
-        insertUnpairedList(winners, unpaired);
-    std::vector<int> jac = generateJacobsthal(static_cast<int>(pairs.size()));
-    std::vector<bool> inserted(pairs.size(), false);
-    insertLosersList(winners, pairs, jac, inserted);
-    insertRemainingLosersList(winners, pairs, inserted);
-    return winners;
+	if (input.size() <= 1)
+		return input;
+	std::vector<int> temp(input.begin(), input.end());
+	int unpaired = 0;
+	bool hasUnpaired = false;
+	std::vector<std::pair<int, int> > pairs = createPairs(temp, unpaired, hasUnpaired);
+	std::list<int> winners = extractWinnersList(pairs);
+	winners = fordJohnsonList(winners);
+	if (hasUnpaired)
+		insertUnpairedList(winners, unpaired);
+	std::vector<int> jac = generateJacobsthal(static_cast<int>(pairs.size()));
+	std::vector<bool> inserted(pairs.size(), false);
+	insertLosersList(winners, pairs, jac, inserted);
+	insertRemainingLosersList(winners, pairs, inserted);
+	return winners;
 }
 
 float PmergeMe::sortList(void)

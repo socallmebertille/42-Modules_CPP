@@ -6,7 +6,7 @@
 /*   By: saberton <saberton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:47:46 by bertille          #+#    #+#             */
-/*   Updated: 2025/05/02 16:08:14 by saberton         ###   ########.fr       */
+/*   Updated: 2025/05/06 19:47:02 by saberton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,11 @@ void BitcoinExchange::getPrice(std::string input)
 			std::istringstream ss2(valueStr);
 			if (!(ss2 >> value))
 				std::cerr << "Error: no number for the date." << std::endl;
+			else if (!(ss2.eof()))
+				std::cerr << "Error: wrong number format." << std::endl;
 			else if (value < 0)
 				std::cerr << "Error: not a positive number." << std::endl;
-			else if (value >= 1000)
+			else if (value > 1000)
 				std::cerr << "Error: too large a number." << std::endl;
 			else if (checkFormatDate(date) == false)
 				std::cerr << "Error: wrong date format Year-Month-Day." << std::endl;

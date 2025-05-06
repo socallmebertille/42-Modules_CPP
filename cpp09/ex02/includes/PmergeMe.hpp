@@ -39,8 +39,6 @@ class PmergeMe
 	std::list<int> _l;
 	float sortDeque(void);
 	float sortList(void);
-	// std::deque<int> fordJohnsonDeque(std::deque<int> input);
-	// std::list<int> fordJohnsonList(std::list<int> input);
   public:
 	PmergeMe();
 	PmergeMe(const PmergeMe& cpy);
