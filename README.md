@@ -1,4 +1,33 @@
-# 42-Modules_CPP
+<div align="center" class="text-center">
+  <h1>42-Modules_CPP</h1>
+  
+  <img alt="last-commit" src="https://img.shields.io/github/last-commit/socallmebertille/42-Modules_CPP?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+  <img alt="repo-top-language" src="https://img.shields.io/github/languages/top/socallmebertille/42-Modules_CPP?style=flat&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+  <img alt="repo-language-count" src="https://img.shields.io/github/languages/count/socallmebertille/42-Modules_CPP?style=flat&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+  <p><em>Built with the tools and technologies:</em></p>
+  <img alt="Markdown" src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&amp;logo=Markdown&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
+  <img alt="GNU%20Bash" src="https://img.shields.io/badge/GNU%20Bash-4EAA25.svg?style=flat&amp;logo=GNU-Bash&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
+  <img alt="Docker" src="https://img.shields.io/badge/%20c++%20-00599C" class="inline-block mx-1" style="margin: 0px 2px;">
+</div>
+
+<h2>Table of Contents</h2>
+<ul class="list-disc pl-4 my-0">
+  <li class="my-0"><a href="#quick-c++-notes">Quick C++ notes</a></li>
+  <li class="my-0"><a href="#modules">Modules</a>
+  <ul class="list-disc pl-4 my-0">
+    <li class="my-0"><a href="#CPP00-—-Bases-du-C++">CPP00 — Bases du C++</a></li>
+    <li class="my-0"><a href="#CPP01-—-Allocation-mémoire-et-références">CPP01 — Allocation mémoire et références</a></li>
+    <li class="my-0"><a href="#CPP02-—-Polymorphisme-ad-hoc-et-classes-canoniques">CPP02 — Polymorphisme ad hoc et classes canoniques</a></li>
+    <li class="my-0"><a href="#CPP03-—-Héritage-simple-et-polymorphisme">CPP03 — Héritage simple et polymorphisme</a></li>
+    <li class="my-0"><a href="#CPP04-—-Héritage-multiple-et-classes-abstraites">CPP04 — Héritage multiple et classes abstraites</a></li>
+    <li class="my-0"><a href="#CPP05-—-Gestion-des-exceptions">CPP05 — Gestion des exceptions</a></li>
+    <li class="my-0"><a href="#CPP06-—-Casts-et-conversions-de-types">CPP06 — Casts et conversions de types</a></li>
+    <li class="my-0"><a href="#CPP07-—-Templates-et-programmation-générique">CPP07 — Templates et programmation générique</a></li>
+    <li class="my-0"><a href="#CPP08-—-Conteneurs-standards-et-algorithmes-STL">CPP08 — Conteneurs standards et algorithmes STL</a></li>
+    <li class="my-0"><a href="#CPP09-—-Projet-final-intégrant-tous-les-concepts">CPP09 — Projet final intégrant tous les concepts</a></li>
+  </ul>
+  </li>
+</ul>
 
 ## Quick C++ notes
 
