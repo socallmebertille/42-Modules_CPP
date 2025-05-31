@@ -15,7 +15,7 @@
   <li class="my-0"><a href="#quick-c++-notes">Quick C++ notes</a></li>
   <li class="my-0"><a href="#modules">Modules</a>
   <ul class="list-disc pl-4 my-0">
-    <li class="my-0"><a href="#CPP00-—-Bases-du-C++">CPP00 — Bases du C++</a></li>
+    <li class="my-0"><a href="#cpp00-—-bases-du-c++">CPP00 — Bases du C++</a></li>
     <li class="my-0"><a href="#CPP01-—-Allocation-mémoire-et-références">CPP01 — Allocation mémoire et références</a></li>
     <li class="my-0"><a href="#CPP02-—-Polymorphisme-ad-hoc-et-classes-canoniques">CPP02 — Polymorphisme ad hoc et classes canoniques</a></li>
     <li class="my-0"><a href="#CPP03-—-Héritage-simple-et-polymorphisme">CPP03 — Héritage simple et polymorphisme</a></li>
