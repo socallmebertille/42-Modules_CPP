@@ -15,16 +15,16 @@
   <li class="my-0"><a href="#quick-c++-notes">Quick C++ notes</a></li>
   <li class="my-0"><a href="#modules">Modules</a>
   <ul class="list-disc pl-4 my-0">
-    <li class="my-0"><a href="#cpp00-—-bases-du-c++">CPP00 — Bases du C++</a></li>
-    <li class="my-0"><a href="#CPP01-—-Allocation-mémoire-et-références">CPP01 — Allocation mémoire et références</a></li>
-    <li class="my-0"><a href="#CPP02-—-Polymorphisme-ad-hoc-et-classes-canoniques">CPP02 — Polymorphisme ad hoc et classes canoniques</a></li>
-    <li class="my-0"><a href="#CPP03-—-Héritage-simple-et-polymorphisme">CPP03 — Héritage simple et polymorphisme</a></li>
-    <li class="my-0"><a href="#CPP04-—-Héritage-multiple-et-classes-abstraites">CPP04 — Héritage multiple et classes abstraites</a></li>
-    <li class="my-0"><a href="#CPP05-—-Gestion-des-exceptions">CPP05 — Gestion des exceptions</a></li>
-    <li class="my-0"><a href="#CPP06-—-Casts-et-conversions-de-types">CPP06 — Casts et conversions de types</a></li>
-    <li class="my-0"><a href="#CPP07-—-Templates-et-programmation-générique">CPP07 — Templates et programmation générique</a></li>
-    <li class="my-0"><a href="#CPP08-—-Conteneurs-standards-et-algorithmes-STL">CPP08 — Conteneurs standards et algorithmes STL</a></li>
-    <li class="my-0"><a href="#CPP09-—-Projet-final-intégrant-tous-les-concepts">CPP09 — Projet final intégrant tous les concepts</a></li>
+    <li class="my-0"><a href="#cpp00--bases-du-c">CPP00 — Bases du C++</a></li>
+    <li class="my-0"><a href="#cpp01--allocation-mémoire-et-références">CPP01 — Allocation mémoire et références</a></li>
+    <li class="my-0"><a href="#cpp02--polymorphisme-ad-hoc-et-classes-canoniques">CPP02 — Polymorphisme ad hoc et classes canoniques</a></li>
+    <li class="my-0"><a href="#cpp03--héritage-simple-et-polymorphisme">CPP03 — Héritage simple et polymorphisme</a></li>
+    <li class="my-0"><a href="#cpp04--héritage-multiple-et-classes-abstraites">CPP04 — Héritage multiple et classes abstraites</a></li>
+    <li class="my-0"><a href="#cpp05--gestion-des-exceptions">CPP05 — Gestion des exceptions</a></li>
+    <li class="my-0"><a href="#cpp06--casts-et-conversions-de-types">CPP06 — Casts et conversions de types</a></li>
+    <li class="my-0"><a href="#cpp07--templates-et-programmation-générique">CPP07 — Templates et programmation générique</a></li>
+    <li class="my-0"><a href="#cpp08--conteneurs-standards-et-algorithmes-STL">CPP08 — Conteneurs standards et algorithmes STL</a></li>
+    <li class="my-0"><a href="#cpp09--projet-final-intégrant-tous-les-concepts">CPP09 — Projet final intégrant tous les concepts</a></li>
   </ul>
   </li>
 </ul>
